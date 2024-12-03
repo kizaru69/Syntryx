@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntryx</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/fav/Sync.jpeg">
+    <!--for loader-->
+    <style>
+    .loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+    
+    .loader {
+        --path: #2F3545;
+        --dot: #5628EE;
+        --duration: 3s;
+        width: 44px;
+        height: 44px;
+        position: relative;
+    }
+    
+    .loader::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        position: absolute;
+        background: var(--dot);
+        top: 37px;
+        left: 19px;
+        transform: translate(-18px, -18px);
+        animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+    .loader svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .loader rect, .loader polygon, .loader circle {
+        fill: none;
+        stroke: var(--path);
+        stroke-width: 10px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+    
+    .loader polygon {
+        stroke-dasharray: 145, 76;
+        stroke-dashoffset: 0;
+        animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+    
+    .loader rect {
+        stroke-dasharray: 192, 64;
+        stroke-dashoffset: 0;
+        animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+    
+    .loader circle {
+        stroke-dasharray: 150, 50;
+        stroke-dashoffset: 75;
+        animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+    
+    .loader.triangle {
+        width: 48px;
+    }
+    
+    .loader.triangle::before {
+        left: 21px;
+        transform: translate(-10px, -18px);
+        animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+    
+    @keyframes pathTriangle {
+        33% { stroke-dashoffset: 74; }
+        66% { stroke-dashoffset: 147; }
+        100% { stroke-dashoffset: 221; }
+    }
+    
+    @keyframes dotTriangle {
+        33% { transform: translate(0, 0); }
+        66% { transform: translate(10px, -18px); }
+        100% { transform: translate(-10px, -18px); }
+    }
+    
+    @keyframes pathRect {
+        25% { stroke-dashoffset: 64; }
+        50% { stroke-dashoffset: 128; }
+        75% { stroke-dashoffset: 192; }
+        100% { stroke-dashoffset: 256; }
+    }
+    
+    @keyframes dotRect {
+        25% { transform: translate(0, 0); }
+        50% { transform: translate(18px, -18px); }
+        75% { transform: translate(0, -36px); }
+        100% { transform: translate(-18px, -18px); }
+    }
+    
+    @keyframes pathCircle {
+        25% { stroke-dashoffset: 125; }
+        50% { stroke-dashoffset: 175; }
+        75% { stroke-dashoffset: 225; }
+        100% { stroke-dashoffset: 275; }
+    }
+    
+    .dribbble {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <header class="head">
+        <a href="loadertest.html" class="logo">Syntryx</a>
+        <div class="headnav">
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <div class="dropdown">
+                            <button>Mobile</button>
+                            <div class="menu">
+                                <a href="#target-section">Gaming</a>
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li>
+                        <div class="dropdown">
+                            <button>Gallery</button>
+                            <div class="menu">
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button>Category</button>
+                            <div class="menu">
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button>Displays</button>
+                            <div class="menu">
+                                <a href="#">Test</a>
+                                <a href="#">Test</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button>About us</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-buttons">
+            <a href="#" class="contact-btn">Contact Me</a>
+            <a href="/Test2/test.html" class="signup-btn">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="background"></div>
+            <video autoplay muted src="/vids/Untitled video - Made with Clipchamp.mp4"></video>
+            <button class="Buy-now">Buy now</button>
+            <a class="learn" href="https://www.lenovo.com/ph/en/p/laptops/loq-laptops/lenovo-loq-15irx9/len101q0005" target="_blank">Learn more</a>
+        </div>
+        <br>
+        <h1 class="head2">Hottest Gadgets in 2024!</h1>
+
+        <nav class="navbar2">
+            <ul>
+                <li><a href="#Mobile" id="phone"><i class="ri-smartphone-line"></i><br>Mobile</a></li>
+                <li><a href="#"><i class="ri-macbook-line"></i><br>Laptop</a></li>
+                <li><a href="#"><i class="ri-computer-line"></i><br>Pc</i></a></li>
+                <li><a href="#"><i class="ri-gamepad-line"></i><br>Handheld</i></a></li>
+            </ul>
+        </nav>
+    </main>
+    <content>
+        <div id="Mobile">
+            <div class="card-container">
+                <div class="card">
+                    <img src="/fav/Red Magic 9S Pro.jpg">
+                    <div class="card-content">
+                        <h3>RedMagic 9s Pro</h3>
+                        <p>Released 2024, July 09
+                            <br>
+                            229g, 8.9mm thickness
+                            <br>
+                            Android 14, Redmagic OS 9.5
+                            <br>
+                            256GB/512GB storage, no card slot</p>
+                        <a href="https://www.gsmarena.com/zte_nubia_red_magic_9_pro-12709.php" target="_blank" class="card-btn" class="info">Learn more</a>
+                        <div class="card-buy">
+                            <a href="https://global.redmagic.gg/products/redmagic-9s-pro" target="_blank">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-container">
+                <div class="card">
+                    <img src="/fav/Red Magic 9S Pro.jpg">
+                    <div class="card-content">
+                        <h3>RedMagic 9s Pro</h3>
+                        <p>Released 2024, July 09
+                            <br>
+                            229g, 8.9mm thickness
+                            <br>
+                            Android 14, Redmagic OS 9.5
+                            <br>
+                            256GB/512GB storage, no card slot</p>
+                        <a href="https://www.gsmarena.com/zte_nubia_red_magic_9_pro-12709.php" target="_blank" class="card-btn" class="info">Learn more</a>
+                        <div class="card-buy">
+                            <a href="https://global.redmagic.gg/products/redmagic-9s-pro" target="_blank">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-container">
+                <div class="card">
+                    <img src="/fav/Red Magic 9S Pro.jpg">
+                    <div class="card-content">
+                        <h3>RedMagic 9s Pro</h3>
+                        <p>Released 2024, July 09
+                            <br>
+                            229g, 8.9mm thickness
+                            <br>
+                            Android 14, Redmagic OS 9.5
+                            <br>
+                            256GB/512GB storage, no card slot</p>
+                        <a href="https://www.gsmarena.com/zte_nubia_red_magic_9_pro-12709.php" target="_blank" class="card-btn" class="info">Learn more</a>
+                        <div class="card-buy">
+                            <a href="https://global.redmagic.gg/products/redmagic-9s-pro" target="_blank">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-container">
+                <div class="card">
+                    <img src="/fav/Red Magic 9S Pro.jpg">
+                    <div class="card-content">
+                        <h3>RedMagic 9s Pro</h3>
+                        <p>Released 2024, July 09
+                            <br>
+                            229g, 8.9mm thickness
+                            <br>
+                            Android 14, Redmagic OS 9.5
+                            <br>
+                            256GB/512GB storage, no card slot</p>
+                        <a href="https://www.gsmarena.com/zte_nubia_red_magic_9_pro-12709.php" target="_blank" class="card-btn" class="info">Learn more</a>
+                        <div class="card-buy">
+                            <a href="https://global.redmagic.gg/products/redmagic-9s-pro" target="_blank">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </content>
+
+    <!--Loader test-->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+    
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+    
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        if (!$(".loader-wrapper").length) {
+            $("body").prepend(`
+                <div class="loader-wrapper">
+                    <div class="loader">
+                        <svg viewBox="0 0 80 80">
+                            <circle id="test" cx="40" cy="40" r="32"></circle>
+                        </svg>
+                    </div>
+                    <div class="loader triangle">
+                        <svg viewBox="0 0 86 80">
+                            <polygon points="43 8 79 72 7 72"></polygon>
+                        </svg>
+                    </div>
+                    <div class="loader">
+                        <svg viewBox="0 0 80 80">
+                            <rect x="8" y="8" width="64" height="64"></rect>
+                        </svg>
+                    </div>
+                </div>
+            `);
+        }
+    
+        window.onload = function() {
+            $(".loader-wrapper").fadeOut("slow", function() {
+                $(this).remove();
+                window.scrollTo(0, 0);
+            });
+        }
+    </script>
+
+
+    
+    <footer class="footer">
+        <a href="#">Feedback |</a>
+        <p>&copy; 2024 Arvin De Luna/Syntryx. All rights reserved. <button>Chat now</button></p>
+    </footer>
+</body>
+</html>
